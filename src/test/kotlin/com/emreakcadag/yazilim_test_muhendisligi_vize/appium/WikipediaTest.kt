@@ -25,7 +25,6 @@ class WikipediaTest {
     @Test
     fun openLoginPage() {
         goToLoginPage()
-
         assertEquals(driver.findElement(By.id("section_0")).text, "Log in")
     }
 
@@ -33,7 +32,6 @@ class WikipediaTest {
     fun loginWithoutUsernameAndPassword() {
         goToLoginPage()
         loginByUsernameAndPassword("", "")
-
         Assertions.assertEquals(driver.findElement(By.id("wpLoginAttempt")).isEnabled, true)
     }
 
@@ -41,7 +39,6 @@ class WikipediaTest {
     fun loginWithoutPassword() {
         goToLoginPage()
         loginByUsernameAndPassword(page.config.username, "")
-
         Assertions.assertEquals(driver.findElement(By.id("wpLoginAttempt")).isEnabled, true)
     }
 
@@ -49,7 +46,6 @@ class WikipediaTest {
     fun loginWithoutUsername() {
         goToLoginPage()
         loginByUsernameAndPassword("", page.config.password)
-
         Assertions.assertEquals(driver.findElement(By.id("wpLoginAttempt")).isEnabled, true)
     }
 
@@ -57,14 +53,12 @@ class WikipediaTest {
     fun loginWithWrongPassword() {
         goToLoginPage()
         loginByUsernameAndPassword(page.config.username, "wrongPassword")
-
         Assertions.assertEquals(driver.findElement(By.id("wpLoginAttempt")).isEnabled, true)
     }
 
     @Test
     fun login() {
         openLoginPage()
-
         loginByUsernameAndPassword(page.config.username, page.config.password)
 
         // Login butonu ekrandan kaybolana kadar Thread'i bekletir.
@@ -97,15 +91,7 @@ class WikipediaTest {
         etUsername.sendKeys(username)
         etPassword.sendKeys(password)
 
-        if (page.driverType == DriverType.ANDROID) {
-            driver.hideKeyboard()
-        }
-
         // Giriş butonu tıklanır ve tıklama işlemi gerçekleştirilir.
         driver.findElement(By.id("wpLoginAttempt")).click()
-
-        if (page.driverType == DriverType.ANDROID) {
-            driver.hideKeyboard()
-        }
     }
 }
