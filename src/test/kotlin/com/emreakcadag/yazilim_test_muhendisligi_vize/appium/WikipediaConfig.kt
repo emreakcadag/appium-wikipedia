@@ -3,7 +3,10 @@ package com.emreakcadag.yazilim_test_muhendisligi_vize.appium
 import io.appium.java_client.remote.MobileCapabilityType
 import org.openqa.selenium.remote.DesiredCapabilities
 
-
+/**
+ * Created By Emre Akçadağ
+ * Appium Test
+ */
 data class WikipediaConfig(
         val baseUrl: String = "https://www.wikipedia.org/",
         val username: String = "Ahmetyeseviodev",

@@ -9,6 +9,10 @@ import io.appium.java_client.ios.IOSDriver
 import java.net.URL
 import java.util.concurrent.TimeUnit
 
+/**
+ * Created By Emre Akçadağ
+ * Appium Test
+ */
 class Wikipedia {
     companion object {
         @Volatile
