@@ -3,6 +3,7 @@ package com.emreakcadag.yazilim_test_muhendisligi_vize.appium
 import io.appium.java_client.remote.MobileCapabilityType
 import org.openqa.selenium.remote.DesiredCapabilities
 
+
 data class WikipediaConfig(
         val baseUrl: String = "https://www.wikipedia.org/",
         val username: String = "Ahmetyeseviodev",
@@ -17,5 +18,14 @@ data class WikipediaConfig(
         setCapability(MobileCapabilityType.BROWSER_NAME, "safari")
         setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone 12 Pro Max")
         setCapability("safariAllowPopups", true)
+    }
+
+    fun getCapabilitiesAndroid() = DesiredCapabilities().apply {
+        setCapability(MobileCapabilityType.PLATFORM_NAME, "Android")
+        setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5556")
+        setCapability(MobileCapabilityType.VERSION, "11")
+        setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome")
+
+        setCapability("appium:chromeOptions", mutableMapOf<String, Any>().also { it["w3c"] = false })
     }
 }
